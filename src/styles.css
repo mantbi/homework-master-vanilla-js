@@ -1,0 +1,91 @@
+:root {
+  --movie-white: url("data:image/svg+xml, %3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%0A%20%20%20%20%20y%3D%220px%22%0A%20%20%20%20%20width%3D%22512px%22%20height%3D%22512px%22%20viewBox%3D%220%200%20512%20512%22%20enable-background%3D%22new%200%200%20512%20512%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20d%3D%22M352%2C255.5l-192%2C96v-192L352%2C255.5z%20M512%2C31.5v448H0v-448H512z%20M320%2C95.5h64v-32h-64V95.5z%20M224%2C95.5h64v-32h-64V95.5z%0A%09%20M128%2C95.5h64v-32h-64V95.5z%20M32%2C95.5h64v-32H32V95.5z%20M96%2C415.5H32v32h64V415.5z%20M192%2C415.5h-64v32h64V415.5z%20M288%2C415.5h-64v32h64%0A%09V415.5z%20M384%2C415.5h-64v32h64V415.5z%20M480%2C415.5h-64v32h64V415.5z%20M480%2C127.5H32v256h448V127.5z%20M480%2C63.5h-64v32h64V63.5z%22%20fill%3D%22%23eee%22%2F%3E%0A%3C%2Fsvg%3E");
+  --movie-black: url("data:image/svg+xml, %3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%0A%20%20%20%20%20y%3D%220px%22%0A%20%20%20%20%20width%3D%22512px%22%20height%3D%22512px%22%20viewBox%3D%220%200%20512%20512%22%20enable-background%3D%22new%200%200%20512%20512%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20d%3D%22M352%2C255.5l-192%2C96v-192L352%2C255.5z%20M512%2C31.5v448H0v-448H512z%20M320%2C95.5h64v-32h-64V95.5z%20M224%2C95.5h64v-32h-64V95.5z%0A%09%20M128%2C95.5h64v-32h-64V95.5z%20M32%2C95.5h64v-32H32V95.5z%20M96%2C415.5H32v32h64V415.5z%20M192%2C415.5h-64v32h64V415.5z%20M288%2C415.5h-64v32h64%0A%09V415.5z%20M384%2C415.5h-64v32h64V415.5z%20M480%2C415.5h-64v32h64V415.5z%20M480%2C127.5H32v256h448V127.5z%20M480%2C63.5h-64v32h64V63.5z%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+h4 {
+  margin: 0 0;
+  position: absolute;
+  margin-left: 3rem;
+  margin-top: -0.1rem;
+  color: #6d8494;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row;
+  height: 80px;
+  width: 100%;
+  background-image: linear-gradient(to right, #ff690f, #e8381b);
+  align-items: flex-start;
+
+  justify-content: center;
+}
+
+#searchInput:focus {
+  outline: none;
+}
+
+#searchInput {
+  height: 40px;
+  font-size: 1em;
+  font-weight: bold;
+  background: rgba(214, 214, 214, 0.322);
+  background-image: var(--movie-white);
+  background-position: 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  padding-left: 3.2rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  border: none;
+  color: aliceblue;
+}
+
+.searchButton svg {
+  margin-top: 1rem;
+  height: 30px;
+  padding: 5px 0px 5px 0px;
+  margin-left: 0.2rem;
+  background: white;
+  border: none;
+}
+
+table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
+  background: white;
+}
+
+th {
+  height: 55px;
+  align-items: center;
+  padding: 0;
+}
+
+td {
+  height: 60px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #334755;
+}
+
+td p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #3f525f;
+}
+
+th input {
+  box-sizing: border-box;
+  width: 100%;
+  color: #17222b;
+}
