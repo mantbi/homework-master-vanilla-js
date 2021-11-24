@@ -4,12 +4,15 @@ const th = document.querySelector("th");
 const h4 = document.querySelector("h4");
 const tbody = document.querySelector("tbody");
 const searchButtonSvg = document.querySelector("svg");
+let mouseInsideResults = false;
 
 async function getMovieList(data) {
   if (data != "") {
-    let = MOVIE_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${data}`;
+    loadingGIF(true);
+    let MOVIE_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${data}`;
     const response = await fetch(MOVIE_URL);
     const jsn = await response.json();
+    loadingGIF(false);
     let sortedJSON = jsn.results.sort((a, b) => b.vote_average > a.vote_average);
     autoCompleteTable(sortedJSON);
   }
@@ -17,6 +20,12 @@ async function getMovieList(data) {
 
 searchButtonSvg.addEventListener("click", searchButton);
 searchInput.addEventListener("input", getInputValue);
+tbody.addEventListener("mouseenter", (e) => {
+  mouseInsideResults = true;
+});
+tbody.addEventListener("mouseleave", (e) => {
+  mouseInsideResults = false;
+});
 
 function searchButton() {
   console.log(searchInput.value);
@@ -60,6 +69,9 @@ searchInput.addEventListener("blur", (event) => {
   searchInput.style.background = "";
   searchInput.placeholder = "Enter a movie name";
   th.style.background = "";
+  if (!mouseInsideResults) {
+    tbody.innerHTML = "";
+  }
 });
 
 function autoCompleteTable(value) {
@@ -84,5 +96,17 @@ function rowHandler() {
       searchInput.value = id.split("\n")[0];
       tbody.innerHTML = "";
     };
+  }
+}
+
+function loadingGIF(visible) {
+  if (visible) {
+    document
+      .getElementById("searchInput")
+      .style.setProperty("background-image", "var(--movie-black), var(--loading-gif)");
+    document.getElementById("searchInput").style.setProperty("background-position", "0.75rem center, right center");
+  } else {
+    document.getElementById("searchInput").style.setProperty("background-image", "var(--movie-black)");
+    document.getElementById("searchInput").style.setProperty("background-position", "0.75rem center");
   }
 }
